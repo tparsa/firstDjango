@@ -10,8 +10,7 @@ invalid_last_name_len = (MyModel.objects.annotate(last_name_length=Length('last_
 invalid_data = (invalid_ages | invalid_experience | invalid_first_name_len | invalid_last_name_len).distinct()
 
 
-valid_manager = ValidDataManager()
-valid_data = MyModel.valid_manager.all()
+valid_data = MyModel.valid_objects.all()
 
 mahdi_21 = (valid_data.filter(first_name="mahdi") | valid_data.filter(age__lte=21)).distinct()
 ali_31_24 = valid_data.filter(first_name__contains="ali", age__lt=30, experience__gt=24)
