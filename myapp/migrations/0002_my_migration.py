@@ -2,6 +2,7 @@
 
 from django.db import migrations
 
+
 def forward_func (apps, schema_editor):
     my_model = apps.get_model("myapp", "MyModel")
     db_alias = schema_editor.connection.alias
